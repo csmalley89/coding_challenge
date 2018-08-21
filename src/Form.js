@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Row, Input, Icon} from 'react-materialize';
 
 class Form extends Component {
 
@@ -13,15 +13,21 @@ class Form extends Component {
   render() {
     return (
       <div className="Form">
-        <form onSubmit={(evt)=>this.props.onSubmit(evt)}>
-          <h3>Add a new todo!</h3>
-          <input onChange={(evt) => this.props.handleChange(evt)}
-          value={this.props.inputValue}
 
-          />
-          <button>Add</button>
-          <hr />
-        </form>
+        <h3>Todo list</h3>
+        <Row>
+          <form onSubmit={(evt)=>this.props.onSubmit(evt)}>
+            <Input
+              s={10}
+              onChange={(evt) => this.props.handleChange(evt)}
+              onClick={() => {window.Materialize.toast('Hit Enter to Submit', 4000)}}
+              value={this.props.inputValue}
+              label="Add a new todo">
+              <Icon>input</Icon>
+              <button>Add</button>
+            </Input>
+          </form>
+        </Row>
       </div>
 
     );

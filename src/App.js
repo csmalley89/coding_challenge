@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from './Form';
 import List from './List';
+import {Col, Row} from 'react-materialize';
 
 
 class App extends Component {
@@ -10,6 +11,10 @@ class App extends Component {
     inputValue: "",
     todos: [
       {
+        name: 'Recieve follow up interview',
+        status: false
+      },
+      {
         name: 'Complete Code Challenge',
         status: true
 
@@ -17,13 +22,10 @@ class App extends Component {
       {
         name: 'Email Challenge to Chris Rathermel to review',
         status: true
-      },
-      {
-        name: 'Recieve follow up interview',
-        status: false
       }
     ]
   }
+
 
 
   handleChange=(evt)=>{
@@ -33,7 +35,7 @@ class App extends Component {
   handleClick=(index)=>{
     const todos = this.state.todos;
     todos[index].status = !todos[index].status;
-    this.setState({todos})
+    this.setState({todos});
   }
 
   onDelete=(index)=>{
@@ -42,7 +44,7 @@ class App extends Component {
     this.setState({todos});
   }
 
-  onSubmit=(evt)=>{
+  onSubmit=(evt, index)=>{
     evt.preventDefault();
     const newToDo = {
       name: this.state.inputValue,
@@ -57,16 +59,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form
-          handleChange={this.handleChange}
-          inputValue={this.state.inputValue}
-          onSubmit={this.onSubmit}
-        />
-        <List
-          todos={this.state.todos}
-          handleClick={this.handleClick}
-          onDelete={this.onDelete}
-          />
+        <Row>
+          <Col s2={10} m2={8} className='card'>
+            <Form
+              handleChange={this.handleChange}
+              inputValue={this.state.inputValue}
+              onSubmit={this.onSubmit}
+            />
+            <List
+              todos={this.state.todos}
+              handleClick={this.handleClick}
+              onDelete={this.onDelete}
+            />
+          </Col>
+        </Row>
       </div>
     );
   }

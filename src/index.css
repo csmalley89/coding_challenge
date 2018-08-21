@@ -1,5 +1,38 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  background: #bdbdbd;
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  display: block;
   font-family: sans-serif;
+  align-items: center;
+}
+
+#list {
+  width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/*.Form > form > input {
+  background-color: #fafafa;
+}*/
+a.Right {
+  margin: 10px;
+  color: black;
+  opacity: .5;
+  float: right;
+}
+
+ul:hover {
+  background-color: #e0e0e0;
+}
+
+#root > div > div > div > div.Form > div {
+  display: block;
+  margin : 0 auto;
+  align-items: center;
 }
